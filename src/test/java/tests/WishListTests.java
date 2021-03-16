@@ -1,12 +1,9 @@
 package tests;
 
-import io.qameta.allure.restassured.AllureRestAssured;
-import io.restassured.RestAssured;
 import models.AddWishListResponse;
 import org.junit.jupiter.api.*;
 import specs.RequestSpec;
 import specs.ResponseSpec;
-import java.util.Collections;
 import static helpers.AuthApi.cookies;
 import static helpers.AuthApi.mapToString;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -14,11 +11,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class WishListTests extends TestBase {
     String cookieText = mapToString(cookies());
-
-    @BeforeAll
-    public static void setUp() {
-        RestAssured.filters(Collections.singletonList(new AllureRestAssured()));
-    }
 
     @Test
     @Order(1)
